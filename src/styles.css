@@ -1,0 +1,225 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-tint: var(--tint);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-accent: var(--brand-accent);
+  --color-surface-deep: var(--surface-deep);
+  --color-metallic: var(--metallic);
+  --color-metallic-soft: var(--metallic-soft);
+  --color-ember: var(--ember);
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: #FAFBFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #065577;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F7FA;
+  --secondary-foreground: #065577;
+  --muted: #F0F4F6;
+  --muted-foreground: #475569;
+  --accent: #0D9488;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(6, 85, 119, 0.12);
+  --input: rgba(6, 85, 119, 0.16);
+  --ring: #065577;
+  --tint: #F0F7FA;
+  --brand: #065577;
+  --brand-deep: #023B54;
+  --brand-accent: #0D9488;
+  --ember: #FF7A4D;
+}
+
+/* ============ v2 Deep Ocean dark theme (scoped to .theme-v2-dark) ============ */
+.theme-v2-dark {
+  --background: #044A66;
+  --foreground: #F0F7FA;
+  --card: #065577;
+  --card-foreground: #F0F7FA;
+  --popover: #065577;
+  --popover-foreground: #F0F7FA;
+  --primary: #93D3F0;
+  --primary-foreground: #023B54;
+  --secondary: #065577;
+  --secondary-foreground: #F0F7FA;
+  --muted: #0A607F;
+  --muted-foreground: #D2E1E9;
+  --accent: #93D3F0;
+  --accent-foreground: #023B54;
+  --border: rgba(240, 247, 250, 0.12);
+  --input: rgba(240, 247, 250, 0.16);
+  --ring: #93D3F0;
+  --tint: #0A607F;
+  --brand: #065577;
+  --brand-deep: #023B54;
+  --brand-accent: #93D3F0;
+  --surface-deep: #0A1620;
+  --surface-bone: #E8F1F6;
+  --metallic: #FFFFFF;
+  --metallic-soft: #E8F1F6;
+  --ember: #FF7A4D;
+}
+
+/* Cool off-white surface — palette escape valve. Scoped token flip so
+   children using text-foreground / bg-card / muted read correctly on
+   the light surface within an otherwise dark page. */
+.theme-v2-dark .surface-bone {
+  --background: #E8F1F6;
+  --foreground: #0A1620;
+  --card: #FFFFFF;
+  --card-foreground: #0A1620;
+  --muted: #DCE7EE;
+  --muted-foreground: #4A6270;
+  --border: rgba(6, 85, 119, 0.14);
+  --tint: #DCE7EE;
+  --primary: #065577;
+  --primary-foreground: #FFFFFF;
+  background-color: #E8F1F6;
+  color: #0A1620;
+}
+
+/* Invert the dark-teal Restore logo so it's legible on the dark background */
+.theme-v2-dark header img[alt="Restore Hyper Wellness"] {
+  filter: brightness(0) invert(1);
+}
+
+
+.theme-v2-dark .mesh-bg {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(13, 148, 136, 0.22), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(34, 211, 196, 0.12), transparent 60%),
+    radial-gradient(700px 400px at 50% 100%, rgba(6, 85, 119, 0.35), transparent 60%),
+    var(--background);
+}
+
+.theme-v2-dark .glass,
+.theme-v2-dark .glass-strong {
+  /* Real panel — one value lighter than the section behind, so text sits
+     on a defined surface with ≥4.5:1 contrast (not floating on ambiguous blue). */
+  background: rgba(10, 96, 127, 0.92);
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(240, 247, 250, 0.22);
+  box-shadow:
+    0 1px 0 rgba(240, 247, 250, 0.10) inset,
+    0 30px 60px -20px rgba(2, 59, 84, 0.6);
+}
+
+/* Lift body/caption inside dark-theme panels for AA legibility. */
+.theme-v2-dark .glass,
+.theme-v2-dark .glass-strong {
+  --muted-foreground: #DDEAF1;
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(6, 85, 119, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 20px 60px -20px rgba(6, 85, 119, 0.18);
+}
+
+@utility glass-dark {
+  background: rgba(6, 85, 119, 0.55);
+  backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px -20px rgba(6, 85, 119, 0.5);
+}
+
+@utility glass-strong {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(6, 85, 119, 0.22);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 30px 80px -24px rgba(6, 85, 119, 0.22);
+}
+
+@utility glow-teal {
+  box-shadow:
+    0 0 0 1px rgba(6, 85, 119, 0.4),
+    0 20px 60px -10px rgba(6, 85, 119, 0.35),
+    0 0 80px -20px rgba(13, 148, 136, 0.4);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility mesh-bg {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(13, 148, 136, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(6, 85, 119, 0.10), transparent 60%),
+    radial-gradient(700px 400px at 50% 100%, rgba(6, 85, 119, 0.06), transparent 60%),
+    var(--background);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
